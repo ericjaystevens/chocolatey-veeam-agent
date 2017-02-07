@@ -6,11 +6,11 @@
     <title>Veeam-Endpoint-Backup-FREE</title>
     <authors>Eric Stevens</authors>
     <owners>Eric Stevens</owners>
-    <licenseUrl>https://www.veeam.com/endpoint-backup-free-faq.html</licenseUrl>
+    <licenseUrl>https://www.veeam.com/eula.html</licenseUrl>
     <projectUrl>https://www.veeam.com/endpoint-backup-free.html</projectUrl>
     <iconUrl>https://img.veeam.com/adaptive/header/veeamlogo_md_up.svg</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Veeam Endpoint Backup FREE is a free tool designed to allow users to back up Windows-based endpoints.
+    <description>Veeam Endpoint Backup FREE is a free tool designed to allow users to back up Windows-based endpoints.</description>
     <summary>7-Zip is a file archiver with a high compression ratio.</summary>
     <tags>veeam Backup admin</tags>
     <packageSourceUrl>https://github.com/ericjaystevens/chocolatey-Veeam-Endpoint-Backup-FREE</packageSourceUrl>
