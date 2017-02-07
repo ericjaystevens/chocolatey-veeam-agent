@@ -12,7 +12,9 @@ $packageArgs = @{
 	fileType      = 'exe'
 	file          = "$installerDir\$installer"
 	silentArgs    = '/silent'
+  ValidExitCodes = @(0,1000)
 }
 
-Install-ChocolateyInstallPackage @packageArgs
+
+Install-ChocolateyInstallPackage @packageArgs 
 
