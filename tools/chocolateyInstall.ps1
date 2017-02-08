@@ -12,7 +12,7 @@ $packageArgs = @{
 	fileType      = 'exe'
 	file          = "$installerDir\$installer"
 	silentArgs    = '/silent'
-  ValidExitCodes = @(0,1000)
+  ValidExitCodes = @(0,1000,1001)
 }
 
 
