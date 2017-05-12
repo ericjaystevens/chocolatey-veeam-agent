@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>veeam-endpoint-backup-free</id>
-    <version>1.5</version>
+    <version>2.0.0.700</version>
     <title>Veeam Agent for Microsoft Windows FREE</title>
     <authors>Veeam</authors>
     <owners>Eric Stevens</owners>
