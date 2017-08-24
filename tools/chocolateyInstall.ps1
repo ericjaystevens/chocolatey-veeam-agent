@@ -1,8 +1,9 @@
 ﻿$toolsDir   = $(Split-Path -Parent $MyInvocation.MyCommand.Definition)
-$packageName = 'VeeamEndpointBackup'
+$packageName = 'VeeamAgentWindows'
+$packageVersion = '2.0.0.700'
 $installerDir = Join-Path $toolsDir 'installer'
-$downloadURL = 'https://download5.veeam.com/VeeamAgentWindows_2.0.0.700.zip'
-$installer = 'VeeamAgentWindows_2.0.0.700.exe'
+$downloadURL = "https://download5.veeam.com/$($packageName)_$packageVersion.zip"
+$installer = "$($packageName)_$packageVersion.exe"
 
 
 Install-ChocolateyZipPackage $packageName -url $downloadURL -UnzipLocation $installerDir
