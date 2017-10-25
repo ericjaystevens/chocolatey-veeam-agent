@@ -1,5 +1,6 @@
-<?xml version="1.0"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>veeam-agent</id>
     <version>2.0.0.700</version>
@@ -7,12 +8,16 @@
     <authors>Veeam</authors>
     <owners>Eric Stevens</owners>
     <licenseUrl>https://www.veeam.com/eula.html</licenseUrl>
-    <projectUrl>https://www.veeam.com/windows-endpoint-server-backup-free.html</projectUrl>
+    <projectUrl>https://www.veeam.com/windows-cloud-server-backup-agent.html</projectUrl>
     <iconUrl>https://cdn.rawgit.com/ericjaystevens/chocolatey-Veeam-Endpoint-Backup-FREE/207bae7/VeeamIcon.png</iconUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>Veeam Agent for Microsoft Windows provides a simple solution for backing up Windows-based servers, desktops and laptops.</description>
     <summary>With Veeam Agent for Microsoft Windows, you can easily back up your PC to an external hard drive, NAS (network-attached storage) share or a Veeam Backup &#038; Replication repository. And, if your system crashes, hard drive fails or a file gets corrupted or accidentally deleted, you can recover what you need in minutes — like it never even happened.</summary>
     <tags>veeam Backup admin</tags>
     <packageSourceUrl>https://github.com/ericjaystevens/chocolatey-Veeam-Endpoint-Backup-FREE</packageSourceUrl>
+    <releaseNotes>https://www.veeam.com/veeam_agent_windows_2_0_whats_new_wn.pdf</releaseNotes>
+    <files>
+      <file src="tools\**" target="tools" />
+    </files>
   </metadata>
 </package>
