@@ -16,8 +16,5 @@
     <tags>veeam Backup admin</tags>
     <packageSourceUrl>https://github.com/ericjaystevens/chocolatey-Veeam-Endpoint-Backup-FREE</packageSourceUrl>
     <releaseNotes>https://www.veeam.com/veeam_agent_windows_2_0_whats_new_wn.pdf</releaseNotes>
-    <files>
-      <file src="tools\**" target="tools" />
-    </files>
   </metadata>
 </package>
