@@ -11,14 +11,23 @@
     <projectUrl>https://www.veeam.com/windows-cloud-server-backup-agent.html</projectUrl>
     <iconUrl>https://cdn.rawgit.com/ericjaystevens/chocolatey-Veeam-Endpoint-Backup-FREE/207bae7/VeeamIcon.png</iconUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <description>Veeam Agent for Microsoft Windows provides a simple solution for backing up Windows-based servers, desktops and laptops.</description>
+    <description>Veeam Agent for Microsoft Windows provides a simple solution for backing up Windows-based servers, 
+desktops and laptops.
+
+This package requires .NET 4.5.2 but chocolatey does not handles dependency that a require a reboot.
+
+  See these links for details: 
+  
+    * https://groups.google.com/d/msg/chocolatey/DznaIi-Yjnk/ZbuO_6T2AAAJ
+    * https://github.com/ericjaystevens/chocolatey-Veeam-Endpoint-Backup-FREE/issues/11
+
+Install .NET 4.5.2 with "choco install dotnet4.5.2" or download the .NET 4.5.2 package from Microsoft's web site
+at https://www.microsoft.com/en-us/download/details.aspx?id=42643
+  </description>
     <summary>With Veeam Agent for Microsoft Windows, you can easily back up your PC to an external hard drive, NAS (network-attached storage) share or a Veeam Backup &#038; Replication repository. And, if your system crashes, hard drive fails or a file gets corrupted or accidentally deleted, you can recover what you need in minutes — like it never even happened.</summary>
     <tags>veeam Backup admin</tags>
     <packageSourceUrl>https://github.com/ericjaystevens/chocolatey-Veeam-Endpoint-Backup-FREE</packageSourceUrl>
     <releaseNotes>https://www.veeam.com/veeam_agent_windows_2_0_whats_new_wn.pdf</releaseNotes>
-    <dependencies>
-      <dependency id="dotnet4.5.2" />
-    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
