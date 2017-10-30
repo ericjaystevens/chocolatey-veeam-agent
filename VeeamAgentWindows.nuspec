@@ -22,7 +22,7 @@ desktops and laptops.
     <summary>With Veeam Agent for Microsoft Windows, you can easily back up your PC to an external hard drive, NAS (network-attached storage) share or a Veeam Backup &#038; Replication repository. And, if your system crashes, hard drive fails or a file gets corrupted or accidentally deleted, you can recover what you need in minutes — like it never even happened.</summary>
     <tags>veeam Backup admin</tags>
     <dependencies>
-	    <dependency id='dotnet4.5.2' />
+	    <dependency id='dotnet4.5.2' version='4.5.2.20140902' />
     </dependencies>
     <packageSourceUrl>https://github.com/ericjaystevens/chocolatey-Veeam-Endpoint-Backup-FREE</packageSourceUrl>
     <releaseNotes>https://www.veeam.com/veeam_agent_windows_2_0_whats_new_wn.pdf</releaseNotes>
