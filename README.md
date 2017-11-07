@@ -1,9 +1,9 @@
-Chocolatey installer for Veeam windows backup client free edition.
+Chocolatey installer for Veeam Agent (formerly windows backup client free edition).
 
-The chocolaty package can be found at https://chocolatey.org/packages/veeam-endpoint-backup-free
+The chocolaty package can be found at https://chocolatey.org/packages/veeam-agent
 
-To install the Veeam Endpoint Backup FREE using chocolaty run
+To install the Veeam Agent using chocolaty run
 
 ```Bash
-choco install veeam-endpoint-backup-free
+choco install veeam-agent
 ```
