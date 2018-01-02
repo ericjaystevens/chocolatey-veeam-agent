@@ -1,6 +1,6 @@
 ﻿$toolsDir   = $(Split-Path -Parent $MyInvocation.MyCommand.Definition)
 $packageName = 'VeeamAgentWindows'
-$packageVersion = '2.0.0.700'
+$packageVersion = '2.1.0.423'
 $installerDir = Join-Path $toolsDir 'installer'
 $downloadURL = "https://download5.veeam.com/$($packageName)_$packageVersion.zip"
 $installer = "$($packageName)_$packageVersion.exe"
@@ -9,7 +9,7 @@ $zipArgs = @{
 	packageName   = $packageName
 	url           = $downloadURL
 	unzipLocation = $installerDir
-	checksum      = '5430baed6bf5711e89b0c93456949597'
+	checksum      = '603988d6d6983d7875a767ebc226200e'
 	checksumType  = 'md5'
 }
 
