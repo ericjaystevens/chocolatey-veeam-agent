@@ -1,0 +1,103 @@
+#
+
+version: '{build}'
+max_jobs: 1
+# History plugin requires complete log
+#clone_depth: 5
+branches:
+  only:
+  - master
+#build:
+#  verbosity: minimal
+
+environment:
+  # Set au version to use or omit to use the latest. Specify branch name to use development version from Github
+  au_version: master
+  au_push: true
+  # Force test: use 1 to test all, or N to split testing into N groups
+  au_test_groups: 1
+
+  # Github token to commit pushed packages to repository
+  github_user_repo: "ericjaystevens/chocolatey-veeam-agent"
+  github_api_key:
+    secure: N4+Jc5Fuq+AYLhT1d8TsmfQKKdLjUqqq9ihtwcvaeYjdta/o8Eo6OfDNobqomQJD
+
+  github_username: sbaerlocher
+  github_password:
+    secure: CFOqqlPq2u/5tJ/vvFCqxw==
+
+  # Mail credentials - for error notifications
+  mail_to: appveyor@sbaerlo.ch
+  mail_from: appveyor@sbaerlo.ch
+  mail_user: SMTP_Injection
+  mail_pass:
+    secure: PM9TzCJIaL97g27u5xOmISK0JWHza4I4MRetgLju55xHyoHp5yOmq/vn1jIwefem
+  mail_server: smtp.sparkpostmail.com
+  mail_port: 587
+  mail_enablessl: true
+
+  # Chocolatey API key - to push updated packages
+  api_key:
+    secure:
+
+init:
+- git config --global user.email "avarins@sbaerlo.ch"
+- git config --global user.name "avarins"
+- git config --global core.safecrlf false
+
+install:
+- ps: 'Get-CimInstance win32_operatingsystem -Property Caption, OSArchitecture, Version | fl Caption, OSArchitecture, Version'
+- ps: $PSVersionTable
+- git --version
+- choco --version
+- ps: |
+    git clone -q https://github.com/majkinetor/au.git $Env:TEMP/au
+    . "$Env:TEMP/au/scripts/Install-AU.ps1" $Env:au_version
+
+- ps: |
+    "Build info"
+    '  {0,-20} {1}' -f 'SCHEDULED BUILD:', ($Env:APPVEYOR_SCHEDULED_BUILD -eq 'true')
+    '  {0,-20} {1}' -f 'FORCED BUILD:'   , ($Env:APPVEYOR_FORCED_BUILD    -eq 'true')
+    '  {0,-20} {1}' -f 'RE BUILD:'       , ($Env:APPVEYOR_RE_BUILD        -eq 'true')
+- cinst chocolatey-core.extension #required for several packages
+
+build_script:
+- ps: |
+    $ErrorActionPreference = 'Continue'
+
+    if ( ($Env:APPVEYOR_SCHEDULED_BUILD -ne 'true') -and ($Env:APPVEYOR_FORCED_BUILD -ne 'true') ) {
+        switch -regex ($Env:APPVEYOR_REPO_COMMIT_MESSAGE)
+        {
+            '\[AU (.+?)\]'   { $forced = $Matches[1] }
+
+            '\[PUSH (.+?)\]' {
+                $packages = $Matches[1] -split ' '
+                Write-Host "PUSHING PACKAGES: $packages"
+                foreach ($package in $packages) {
+                    Write-Host ("{0}`n{1}`n" -f ('-'*60), "PACKAGE: $package")
+                    $package_dir = ls -recurse | ? { $_.Name -eq "$package.nuspec"} | select -First 1 | % Directory
+                    if (!$package_dir) { Write-Warning "Can't find package '$package'"; continue }
+                    pushd $package_dir
+                      if (Test-Path update.ps1 -ea 0) { ./update.ps1 }
+                      choco pack; Push-Package;
+                    popd
+                }
+                return
+            }
+        }
+    }
+
+    ./build.ps1 -ForcedPackages $forced
+    7z a au_temp.zip $Env:TEMP\chocolatey\au\*
+
+artifacts:
+- path: update_info.xml
+- path: Update-AUPackages.md
+- path: au_temp.zip
+
+notifications:
+- provider: Email
+  to: appveyor@sbaerlo.ch
+  on_build_success: false
+  on_build_failure: true
+  on_build_status_changed: true
