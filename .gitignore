@@ -1,1 +1,41 @@
+# Created by https://www.gitignore.io/api/powershell,visualstudiocode,chocolatey,au
+
+### PowerShell ###
+# Exclude packaged modules
+*.zip
+
+# Exclude .NET assemblies from source
+*.dll
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+### Chocolatey ###
+# Exclude packaged modules
 *.nupkg
+
+### AU ###
+
+*.nupkg
+/update_vars.ps1
+/Update-AUPackages.md
+/update_info.xml
+/api_key
+/Update-History.md
+/Update-Force-Test*.md
+.vscode
+*.jar
+*.exe
+*.7z
+*.msi
+*.rar
+*.zip
+/invoke-build/tools/InvokeBuild
+/plantuml/tools/PlantUML_Language_Reference_Guide.pdf
+
+# End of https://www.gitignore.io/api/powershell,visualstudiocode,chocolatey,au
+
