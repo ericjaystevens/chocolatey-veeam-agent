@@ -3,8 +3,8 @@ $PackageParameters = Get-PackageParameters
 
 $toolsDir = "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)"
 
-$url 				 = 'https://download5.veeam.com/VeeamAgentWindows_3.0.0.748.zip'
-$checksumZip         = 'e95dbbcae538fa7b23b4e57731b05a0fbaa1b45ef484f2a91b7c553f915697dcd7b12dc495640b5a4aa5418a62995f92e55e9ca7ed2a2354c2d674702ab6bc2e'
+$url 				 = 'https://download5.veeam.com/VeeamAgentWindows_3.0.1.1039.zip'
+$checksumZip         = 'CBC1C0380164D63B3D09E8365858122C16FAC5663C11DC82D15FD7085624A2AFEA3D4C11E8FD0CA1F77451B8DC300C4F3E4285E909EF234944CB4273B4F590E3'
 $checksumTypeZip     = 'SHA512'
 
 Import-Module -Name "$($toolsDir)\helpers.ps1"
@@ -21,7 +21,7 @@ $packageArgs = @{
 	packageName    = $env:ChocolateyPackageName
 	fileType       = 'EXE'
 	file           = "$($ENV:TMP)\VeeamAgentWindows_$($packageVersion).exe"
-	silentArgs     = '/silent /accepteula'
+	silentArgs     = '/silent /accepteula /acceptthirdpartylicenses'
 	validExitCodes = @(0, 1000, 1101)
 }
 

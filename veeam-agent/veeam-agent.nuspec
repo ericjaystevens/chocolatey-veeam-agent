@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>veeam-agent</id>
-    <version>3.0.0.748</version>
+    <version>3.0.1.1039</version>
     <title>Veeam Agent for Microsoft Windows</title>
     <authors>Veeam</authors>
     <owners>Simon Baerlocher, Eric Stevens</owners>
